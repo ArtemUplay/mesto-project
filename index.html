@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Фотографии, путешествия">
+  <meta name="description"
+    content="Это интерактивная страница, где вы можете добавлять свои фото, удалять их и ставить лайки">
+  <meta name="author" content="Artem Pronin">
+  <link rel="stylesheet" href="pages/index.css">
+  <title>Mesto</title>
+</head>
+
+<body class="root">
+  <div class="page">
+    <header class="header">
+      <img src="images/header-logo.svg" alt="Логотип" class="header__logo">
+    </header>
+    <main class="content">
+      <section class="profile">
+        <img src="images/Avatar.png" alt="Аватар" class="profile__avatar">
+        <div class="info">
+          <div class="profile__info">
+            <h2 class="profile__name">Жак-Ив Кусто</h2>
+            <button type="button" class="profile__edit-button">
+              <img src="images/Edit-button.svg" alt="Edit" class="profile__edit-pic">
+            </button>
+            <h3 class="profile__status">Исследователь океана</h3>
+          </div>
+          <button type="button" class="profile__add-button">
+            <img src="images/Plus.svg" alt="Plus picture" class="profile__add-pic">
+          </button>
+        </div>
+      </section>
+      <section class="photos">
+        <ul class="cards">
+          <li class="cards__item">
+            <img src="images/Karachaevsk.jpg" alt="Karachaevsk" class="cards__image">
+            <div class="cards__info">
+              <h3 class="cards__name">Карачаевск</h3>
+              <label class="cards__label">
+                <input type="checkbox" name="like" value="like" class="cards__like">
+                <span class="cards__pseudo-like"></span>
+              </label>
+            </div>
+          </li>
+          <li class="cards__item">
+            <img src="images/Elbrus.jpg" alt="Elbrus" class="cards__image">
+            <div class="cards__info">
+              <h3 class="cards__name">Гора Эльбрус</h3>
+              <label class="cards__label">
+                <input type="checkbox" name="like" value="like" class="cards__like">
+                <span class="cards__pseudo-like"></span>
+              </label>
+            </div>
+          </li>
+          <li class="cards__item">
+            <img src="images/Dombay.jpg" alt="Dombay" class="cards__image">
+            <div class="cards__info">
+              <h3 class="cards__name">Домбай</h3>
+              <label class="cards__label">
+                <input type="checkbox" name="like" value="like" class="cards__like">
+                <span class="cards__pseudo-like"></span>
+              </label>
+            </div>
+          </li>
+          <li class="cards__item">
+            <img src="images/Elbrus.jpg" alt="Elbrus" class="cards__image">
+            <div class="cards__info">
+              <h3 class="cards__name">Гора Эльбрус</h3>
+              <label class="cards__label">
+                <input type="checkbox" name="like" value="like" class="cards__like">
+                <span class="cards__pseudo-like"></span>
+              </label>
+            </div>
+          </li>
+          <li class="cards__item">
+            <img src="images/Dombay.jpg" alt="Dombay" class="cards__image">
+            <div class="cards__info">
+              <h3 class="cards__name">Домбай</h3>
+              <label class="cards__label">
+                <input type="checkbox" name="like" value="like" class="cards__like">
+                <span class="cards__pseudo-like"></span>
+              </label>
+            </div>
+          </li>
+          <li class="cards__item">
+            <img src="images/Karachaevsk.jpg" alt="Karachaevsk" class="cards__image">
+            <div class="cards__info">
+              <h3 class="cards__name">Карачаево-Черкеская республика</h3>
+              <label class="cards__label">
+                <input type="checkbox" name="like" value="like" class="cards__like">
+                <span class="cards__pseudo-like"></span>
+              </label>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer">
+      <p class="footer__info">&copy; 2020 Mesto Russia</p>
+    </footer>
+    <section class="popup">
+      <div class="popup__container">
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <button type="button" class="popup__close">
+          <img class="popup__close-pic" src="images/Close-icon.svg" alt="Крестик для закрытия окна">
+        </button>
+        <form class="form">
+          <fieldset class="form__user-info">
+            <input type="text" name="name" value="Жак-Ив Кусто" class="form__item form__item_el_user-name">
+            <input type="text" name="status" value="Исследователь океана" class="form__item form__item_el_user-status">
+            <button type="submit" class="form__button">Сохранить</button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+.cards__pseudo-like {
+  display: inline-block;
+  width: 22px;
+  height: 19px;
+  cursor: pointer;
+  transition: opacity .2s ease;
+  transition: background-image .25s ease;
+}
+
+.cards__like+.cards__pseudo-like {
+  background-image: url(../../../images/heart.svg);
+}
+
+
+.cards__like:checked+.cards__pseudo-like {
+  background-image: url(../../../images/heart-black.svg);
+}
+
+.cards__like:hover+.cards__pseudo-like {
+  opacity: .5;
+}
+
+.cards__like:checked:hover+.cards__pseudo-like {
+  opacity: 1;
+}

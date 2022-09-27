@@ -1,0 +1,9 @@
+.cards__info {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 282px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 15px 27px 21px;
+}
