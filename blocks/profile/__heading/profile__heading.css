@@ -1,0 +1,17 @@
+.profile__heading {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-areas:
+    "name edit-button"
+    "status status";
+  position: relative;
+}
+
+@media screen and (max-width: 670px) {
+  .profile__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+}

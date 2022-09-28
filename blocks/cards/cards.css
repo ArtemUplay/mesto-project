@@ -1,25 +1,9 @@
 .cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 20px 17px;
-  padding: 0;
-  margin: 0;
-  justify-content: center;
+  padding: 0px 0px 66px 0px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 320px) {
   .cards {
-    grid-template-columns: repeat(2, fit-content(282px));
-    grid-template-rows: repeat(3, fit-content(361px));
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 520px) {
-  .cards {
-    grid-template-columns: repeat(1, fit-content(282px));
-    grid-template-rows: repeat(6, fit-content(361px));
-    justify-content: center;
+    padding: 0px 0px 48px 0px;
   }
 }

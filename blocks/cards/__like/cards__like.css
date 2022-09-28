@@ -1,8 +1,7 @@
 .cards__like {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
+  transition: opacity .2s ease;
 }
 
+.cards__button-like:hover .cards__like {
+  opacity: .5;
+}

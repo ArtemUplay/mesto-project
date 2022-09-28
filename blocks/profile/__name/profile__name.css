@@ -1,17 +1,28 @@
 .profile__name {
-  display: inline-block;
   color: #fff;
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
-  margin: 22px 0px 8px 0px;
+  margin: 22px 0px 0px 0px;
+  max-width: 330px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  grid-area: "name";
 }
 
 @media screen and (max-width:670px) {
   .profile__name {
+    display: inline-block;
     text-align: center;
     margin: 25px 0px 6px 0px;
     font-size: 27px;
     line-height: 33px;
+  }
+}
+
+@media screen and (max-width:670px) {
+  .profile__name {
+    max-width: 215px;
   }
 }
