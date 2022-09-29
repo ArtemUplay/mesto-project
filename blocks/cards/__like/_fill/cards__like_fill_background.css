@@ -1,9 +1,0 @@
-.cards__like_fill_background {
-  fill: transparent;
-  transition: fill .2s ease;
-}
-
-.cards__button-like:active .cards__like_fill_background {
-  opacity: 1;
-  fill: black;
-}

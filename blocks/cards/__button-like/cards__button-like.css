@@ -1,9 +1,18 @@
 .cards__button-like {
+  display: block;
+  width: 100%;
+  max-width: 22px;
   border: 0;
   padding: 0;
   background-color: transparent;
+  background-image: url(../../../images/heart.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   cursor: pointer;
+  transition: opacity .2s ease;
 }
 
-
-
+.cards__button-like:hover {
+  opacity: .5;
+}
