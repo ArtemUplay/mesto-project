@@ -43,7 +43,7 @@ for (let i = 0; i < initialCards.length; i++) {
   cardsList.insertAdjacentHTML('beforeend',
     `
   <li class="cards__item">
-    <img src="${initialCards[i].link}" alt="Карачаевск" class="cards__image">
+    <img src="${initialCards[i].link}" alt="${initialCards[i].name}" class="cards__image">
     <div class="cards__info">
       <h2 class="cards__name">${initialCards[i].name}</h2>
       <button type="button" class="cards__button-like"></button>
@@ -111,10 +111,12 @@ function addCard() {
     link: placeLink.value
   });
 
+  cardsForm.reset();
+
   cardsList.insertAdjacentHTML("afterbegin",
     `
   <li class="cards__item">
-    <img src="${initialCards[0].link}" alt="Карачаевск" class="cards__image">
+    <img src="${initialCards[0].link}" alt="${initialCards[0].name}" class="cards__image">
     <div class="cards__info">
       <h2 class="cards__name">${initialCards[0].name}</h2>
       <button type="button" class="cards__button-like"></button>
@@ -126,4 +128,11 @@ function addCard() {
 saveCardsButton.addEventListener('click', function () {
   addCard();
   closePopup(addCardsPopup);
+});
+
+// Добавление возможности лайкать фото
+const cardLike = document.querySelector('.cards__button-like');
+
+cardLike.addEventListener('click', function () {
+  cardLike.classList.toggle('cards__button-like_active');
 });
