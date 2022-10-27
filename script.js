@@ -51,6 +51,12 @@ function createCard(placeName, placeLink) {
 
 function addCard(card) {
   cardsList.prepend(card);
+
+  const likeButton = document.querySelector('.cards__button-like');
+
+  likeButton.addEventListener('click', function (evt) {
+    evt.target.classList.toggle('cards__button-like_active');
+  })
 }
 
 function addWebsiteCards() {
@@ -129,3 +135,4 @@ saveCardsButton.addEventListener('click', function () {
   addPopupCard();
   closePopup(addCardsPopup);
 });
+
