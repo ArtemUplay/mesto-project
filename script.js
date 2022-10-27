@@ -57,6 +57,8 @@ function addCard(card) {
   likeButton.addEventListener('click', function (evt) {
     evt.target.classList.toggle('cards__button-like_active');
   })
+
+  removeCard();
 }
 
 function addWebsiteCards() {
@@ -121,11 +123,6 @@ function addPopupCard() {
     evt.preventDefault();
   })
 
-  // initialCards.unshift({
-  //   name: placeName.value,
-  //   link: placeLink.value
-  // });
-
   addCard(createCard(placeName.value, placeLink.value));
 
   cardsForm.reset();
@@ -136,3 +133,11 @@ saveCardsButton.addEventListener('click', function () {
   closePopup(addCardsPopup);
 });
 
+function removeCard() {
+  const removeCardButton = document.querySelector('.cards__remove');
+
+  removeCardButton.addEventListener('click', function (evt) {
+    const card = removeCardButton.closest('.cards__item');
+    card.remove();
+  })
+}
