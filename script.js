@@ -38,19 +38,28 @@ const initialCards = [
   }
 ];
 
-// Добавление карточек на страницу
-for (let i = 0; i < initialCards.length; i++) {
-  cardsList.insertAdjacentHTML('beforeend',
-    `
-  <li class="cards__item">
-    <img src="${initialCards[i].link}" alt="${initialCards[i].name}" class="cards__image">
-    <div class="cards__info">
-      <h2 class="cards__name">${initialCards[i].name}</h2>
-      <button type="button" class="cards__button-like"></button>
-    </div>
-  </li>
-  `)
+const cardTemplate = document.querySelector('#card-template').content;
+
+function createCard(placeName, placeLink) {
+  let cardElement = cardTemplate.querySelector('.cards__item').cloneNode(true);
+
+  cardElement.querySelector('.cards__image').src = placeLink;
+  cardElement.querySelector('.cards__name').textContent = placeName;
+
+  return cardElement;
 }
+
+function addCard(card) {
+  cardsList.prepend(card);
+}
+
+function addWebsiteCards() {
+  for (let i = 0; i < initialCards.length; i++) {
+    addCard(createCard(initialCards[i].name, initialCards[i].link));
+  }
+}
+
+addWebsiteCards();
 
 function openPopup(openPopup) {
   openPopup.classList.add('popup_opened');
@@ -74,8 +83,8 @@ function editProfile() {
   const formEdit = document.querySelector('.form_edit');
 
   // Отменяем стандартную отправку формы
-  formEdit.addEventListener('submit', (event) => {
-    event.preventDefault();
+  formEdit.addEventListener('submit', (evt) => {
+    evt.preventDefault();
   })
 
   saveEditButton.addEventListener('click', function () {
@@ -95,44 +104,28 @@ popupAddCardsClose.addEventListener('click', function () {
   closePopup(addCardsPopup);
 });
 
-
-function addCard() {
+// Создание карточек через попап
+function addPopupCard() {
   const cardsForm = document.querySelector('.form_add-card');
   const placeName = document.querySelector('.form__item_el_name_place');
   const placeLink = document.querySelector('.form__item_el_photo-link');
 
   // Отменяем стандартную отправку формы
-  cardsForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+  cardsForm.addEventListener('submit', (evt) => {
+    evt.preventDefault();
   })
 
-  initialCards.unshift({
-    name: placeName.value,
-    link: placeLink.value
-  });
+  // initialCards.unshift({
+  //   name: placeName.value,
+  //   link: placeLink.value
+  // });
+
+  addCard(createCard(placeName.value, placeLink.value));
 
   cardsForm.reset();
-
-  cardsList.insertAdjacentHTML("afterbegin",
-    `
-  <li class="cards__item">
-    <img src="${initialCards[0].link}" alt="${initialCards[0].name}" class="cards__image">
-    <div class="cards__info">
-      <h2 class="cards__name">${initialCards[0].name}</h2>
-      <button type="button" class="cards__button-like"></button>
-    </div>
-  </li>
-  `);
 }
 
 saveCardsButton.addEventListener('click', function () {
-  addCard();
+  addPopupCard();
   closePopup(addCardsPopup);
-});
-
-// Добавление возможности лайкать фото
-const cardLike = document.querySelector('.cards__button-like');
-
-cardLike.addEventListener('click', function () {
-  cardLike.classList.toggle('cards__button-like_active');
 });
