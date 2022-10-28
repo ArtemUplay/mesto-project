@@ -44,6 +44,7 @@ function createCard(placeName, placeLink) {
   let cardElement = cardTemplate.querySelector('.cards__item').cloneNode(true);
 
   cardElement.querySelector('.cards__image').src = placeLink;
+  cardElement.querySelector('.cards__image').alt = placeName;
   cardElement.querySelector('.cards__name').textContent = placeName;
 
   return cardElement;
@@ -59,6 +60,7 @@ function addCard(card) {
   })
 
   removeCard();
+  openImage();
 }
 
 function addWebsiteCards() {
@@ -69,10 +71,12 @@ function addWebsiteCards() {
 
 addWebsiteCards();
 
+// Открытие попапа
 function openPopup(openPopup) {
   openPopup.classList.add('popup_opened');
 };
 
+// Закрытие попапа
 function closePopup(closePopup) {
   closePopup.classList.remove('popup_opened');
 };
@@ -141,3 +145,26 @@ function removeCard() {
     card.remove();
   })
 }
+
+// Открытие попапа с картинкой
+const openPopupImage = document.querySelector('.image-popup');
+
+function openImage() {
+  const cardImage = document.querySelector('.cards__image');
+  const imagePopupPicture = document.querySelector('.image-popup__picture');
+  const pictureName = document.querySelector('.cards__name');
+  const captionText = document.querySelector('.image-popup__caption');
+
+  cardImage.addEventListener('click', function (evt) {
+    openPopup(openPopupImage);
+
+    imagePopupPicture.src = evt.target.src;
+    captionText.textContent = pictureName.textContent;
+  })
+}
+
+const imagePopupClose = document.querySelector('.popup__close_image-popup');
+
+imagePopupClose.addEventListener('click', function () {
+  closePopup(openPopupImage);
+})
