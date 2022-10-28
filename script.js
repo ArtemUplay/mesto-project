@@ -51,6 +51,31 @@ function createCard(placeName, placeLink) {
   return cardElement;
 }
 
+// Удаление карточки
+function removeCard() {
+  const removeCardButton = document.querySelector('.cards__remove');
+
+  removeCardButton.addEventListener('click', function (evt) {
+    const card = removeCardButton.closest('.cards__item');
+    card.remove();
+  })
+}
+
+// Открытие попапа с картинкой
+function openImage() {
+  const cardImage = document.querySelector('.cards__image');
+  const imagePopupPicture = document.querySelector('.image-popup__picture');
+  const pictureName = document.querySelector('.cards__name');
+  const captionText = document.querySelector('.image-popup__caption');
+
+  cardImage.addEventListener('click', function (evt) {
+    openPopup(openPopupImage);
+
+    imagePopupPicture.src = evt.target.src;
+    captionText.textContent = pictureName.textContent;
+  })
+}
+
 function addCard(card) {
   cardsList.prepend(card);
 
@@ -113,31 +138,6 @@ function addPopupCard() {
   addCard(createCard(placeName.value, placeLink.value));
 
   cardsForm.reset();
-}
-
-// Удаление карточки
-function removeCard() {
-  const removeCardButton = document.querySelector('.cards__remove');
-
-  removeCardButton.addEventListener('click', function (evt) {
-    const card = removeCardButton.closest('.cards__item');
-    card.remove();
-  })
-}
-
-// Открытие попапа с картинкой
-function openImage() {
-  const cardImage = document.querySelector('.cards__image');
-  const imagePopupPicture = document.querySelector('.image-popup__picture');
-  const pictureName = document.querySelector('.cards__name');
-  const captionText = document.querySelector('.image-popup__caption');
-
-  cardImage.addEventListener('click', function (evt) {
-    openPopup(openPopupImage);
-
-    imagePopupPicture.src = evt.target.src;
-    captionText.textContent = pictureName.textContent;
-  })
 }
 
 popupClose.addEventListener('click', function () {
