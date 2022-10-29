@@ -1,7 +1,5 @@
 .cards__info {
   box-sizing: border-box;
-  /* width: 100%; */
-  /* max-width: 282px; */
   background: #fff;
   display: flex;
   justify-content: space-between;
