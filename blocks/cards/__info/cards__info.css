@@ -1,9 +1,10 @@
 .cards__info {
   box-sizing: border-box;
-  width: 100%;
-  max-width: 282px;
+  /* width: 100%; */
+  /* max-width: 282px; */
   background: #fff;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 25px 20px 27px 21px;
 }

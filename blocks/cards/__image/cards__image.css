@@ -1,7 +1,7 @@
 .cards__image {
+  display: block;
+  /* aspect-ratio: 1 / 1; */
   width: 100%;
-  aspect-ratio: 1 / 1;
-  max-width: 282px;
   height: 282px;
   object-fit: cover;
   cursor: pointer;

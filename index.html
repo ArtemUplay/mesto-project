@@ -35,7 +35,18 @@
         </div>
       </section>
       <section class="cards">
-        <ul class="cards__list"></ul>
+        <ul class="cards__list">
+          <template id="card-template">
+            <li class="cards__item">
+              <img src="" alt="" class="cards__image">
+              <button type="button" class="cards__remove"></button>
+              <div class="cards__info">
+                <h2 class="cards__name"></h2>
+                <button aria-label="Мне нравится" type="button" class="cards__button-like"></button>
+              </div>
+            </li>
+          </template>
+        </ul>
       </section>
     </main>
     <footer class="footer">
@@ -89,16 +100,6 @@
       </div>
     </div>
   </div>
-  <template id="card-template">
-    <li class="cards__item">
-      <img src="" alt="" class="cards__image">
-      <button type="button" class="cards__remove"></button>
-      <div class="cards__info">
-        <h2 class="cards__name"></h2>
-        <button type="button" class="cards__button-like"></button>
-      </div>
-    </li>
-  </template>
   <script src="script.js"></script>
 </body>
 
