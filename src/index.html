@@ -9,28 +9,27 @@
   <meta name="description"
     content="Это интерактивная страница, где вы можете добавлять свои фото, удалять их и ставить лайки">
   <meta name="author" content="Artem Pronin">
-  <link rel="stylesheet" href="pages/index.css">
   <title>Mesto</title>
 </head>
 
 <body class="root">
   <div class="page">
     <header class="header">
-      <img src="images/header-logo.svg" alt="Логотип" class="header__logo">
+      <img src="<%=require('./images/header-logo.svg')%>" alt="Логотип" class="header__logo">
     </header>
     <main class="content">
       <section class="profile">
-        <img src="images/Avatar.png" alt="Аватар" class="profile__avatar">
+        <img src="<%=require('./images/Avatar.png')%>" alt="Аватар" class="profile__avatar">
         <div class="profile__info">
           <div class="profile__heading">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button type="button" class="profile__edit-button">
-              <img src="images/Edit-button.svg" alt="Изменить" class="profile__edit-pic">
+              <img src="<%=require('./images/Edit-button.svg')%>"" alt=" Изменить" class="profile__edit-pic">
             </button>
             <p class="profile__status">Исследователь океана</p>
           </div>
           <button type="button" class="profile__add-button">
-            <img src="images/Plus.svg" alt="Добавить" class="profile__add-pic">
+            <img src="<%=require('./images/Plus.svg')%>" alt="Добавить" class="profile__add-pic">
           </button>
         </div>
       </section>
@@ -56,7 +55,7 @@
       <div class="popup__container">
         <h3 class="popup__title">Редактировать профиль</h3>
         <button type="button" class="popup__close">
-          <img class="popup__close-pic" src="images/Close-icon.svg" alt="Крестик для закрытия окна">
+          <img class="popup__close-pic" src="<%=require('./images/Close-icon.svg')%>" alt="Крестик для закрытия окна">
         </button>
         <form class="form form_edit" name="profile-form">
           <fieldset class="form__user-info">
@@ -73,7 +72,7 @@
       <div class="popup__container popup__container_add-card">
         <h3 class="popup__title popup__title_add-card">Новое место</h3>
         <button type="button" class="popup__close popup__close_add-card">
-          <img class="popup__close-pic popup__close-pic_add-card" src="images/Close-icon.svg"
+          <img class="popup__close-pic popup__close-pic_add-card" src="<%=require('./images/Close-icon.svg')%>"
             alt="Крестик для закрытия окна">
         </button>
         <form class="form form_add-card" name="profile-form">
@@ -93,14 +92,14 @@
       <div class="image-popup__figure">
         <img src="" alt="" class="image-popup__picture">
         <button type="button" class="popup__close popup__close_image-popup">
-          <img src="images/Close-icon.svg" alt="Крестик для закрытия окна"
+          <img src="<%=require('./images/Close-icon.svg')%>" alt=" Крестик для закрытия окна"
             class="popup__close-pic popup__close-pic_image-popup">
         </button>
         <figcaption class="image-popup__caption"></figcaption>
       </div>
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="./index.js"></script>
 </body>
 
 </html>
