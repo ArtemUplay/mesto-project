@@ -17,6 +17,13 @@
   cursor: pointer;
 }
 
+.form__button_disabled {
+  opacity: 0.8;
+  background-color: transparent;
+  color: #e5e5e5;
+  border: 1px solid #e5e5e5;
+}
+
 .form__button:hover {
   opacity: .8;
 }

@@ -24,7 +24,7 @@
           <div class="profile__heading">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button type="button" class="profile__edit-button">
-              <img src="<%=require('./images/Edit-button.svg')%>"" alt=" Изменить" class="profile__edit-pic">
+              <img src="<%=require('./images/Edit-button.svg')%>" alt=" Изменить" class="profile__edit-pic">
             </button>
             <p class="profile__status">Исследователь океана</p>
           </div>
@@ -57,11 +57,20 @@
         <button type="button" class="popup__close">
           <img class="popup__close-pic" src="<%=require('./images/Close-icon.svg')%>" alt="Крестик для закрытия окна">
         </button>
-        <form class="form form_edit" name="profile-form">
+        <form class="form form_edit" name="profile-form" novalidate>
           <fieldset class="form__user-info">
             <div class="form__items">
-              <input type="text" name="name" value="" class="form__item form__item_el_user-name">
-              <input type="text" name="status" value="" class="form__item form__item_el_user-status">
+              <input type="text" value="" pattern="^[a-zA-Zа-яА-Я\s-]+$"
+                data-error-message=" Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
+                class="form__item form__item_el_user-name" id="profile-name-input" minlength="2" maxlength="40"
+                required>
+              <span class="form__item-error profile-name-input-error">Вы пропустили это
+                поле.</span>
+              <input type="text" value="" pattern="^[a-zA-Zа-яА-Я\s-]+$"
+                data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
+                class="form__item form__item_el_user-status" id="profile-status-input" minlength="2" maxlength="200"
+                required>
+              <span class="form__item-error profile-status-input-error">Вы пропустили это поле.</span>
             </div>
             <button type="submit" class="form__button form__button_edit">Сохранить</button>
           </fieldset>
@@ -78,10 +87,18 @@
         <form class="form form_add-card" name="profile-form">
           <fieldset class="form__user-info form__user-info_add-card">
             <div class="form__items form-items_add-card">
-              <input type="text" name="name" value="" placeholder="Название"
-                class="form__item form__item_el_name_place">
-              <input type="text" name="status" value="" placeholder="Ссылка на картинку"
-                class="form__item form__item_el_photo-link">
+              <input type="text" value="" pattern="^[a-zA-Zа-яА-Я\s-]+$"
+                data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
+                placeholder="Название" class="form__item form__item_el_name_place" id="card-name-input" minlength="2"
+                maxlength="30" required>
+              <span class="form__item-error card-name-input-error">Вы пропустили это
+                поле.</span>
+              <input type="url" value="" pattern="^[a-zA-Zа-яА-Я\s-]+$"
+                data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
+                placeholder="Ссылка на картинку" class="form__item form__item_el_photo-link" id="card-url-input"
+                required>
+              <span class="form__item-error card-url-input-error">Вы пропустили это
+                поле.</span>
             </div>
             <button type="submit" class="form__button form__button_add-card">Сохранить</button>
           </fieldset>
@@ -92,14 +109,14 @@
       <div class="image-popup__figure">
         <img src="" alt="" class="image-popup__picture">
         <button type="button" class="popup__close popup__close_image-popup">
-          <img src="<%=require('./images/Close-icon.svg')%>" alt=" Крестик для закрытия окна"
+          <img src="<%=require('./images/Close-icon.svg')%>" alt="Крестик для закрытия окна"
             class="popup__close-pic popup__close-pic_image-popup">
         </button>
         <figcaption class="image-popup__caption"></figcaption>
       </div>
     </div>
   </div>
-  <script src="./index.js"></script>
+  <script src="./components/index.js"></script>
 </body>
 
 </html>

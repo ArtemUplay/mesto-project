@@ -1,0 +1,53 @@
+.form__item-error {
+  display: block;
+  font-size: 12px;
+  line-height: 15px;
+  color: #FF0000;
+  position: absolute;
+  left: 36px;
+  width: 100%;
+  max-width: 358px;
+  display: none;
+}
+
+.form__item-error_active {
+  display: block;
+}
+
+.profile-name-input-error {
+  top: 143px;
+}
+
+.profile-status-input-error {
+  top: 200px;
+}
+
+.card-name-input-error {
+  top: 143px;
+}
+
+.card-url-input-error {
+  top: 200px;
+}
+
+@media screen and (max-width: 550px) {
+  .form__item-error {
+    left: 21px;
+  }
+
+  .profile-name-input-error {
+    top: 150px;
+  }
+
+  .profile-status-input-error {
+    top: 227px;
+  }
+
+  .card-name-input-error {
+    top: 150px;
+  }
+
+  .card-url-input-error {
+    top: 227px;
+  }
+}
