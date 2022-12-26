@@ -1,5 +1,6 @@
 .image-popup__figure {
   position: relative;
+  cursor: default;
   font-size: 0;
   margin: 10px;
 }

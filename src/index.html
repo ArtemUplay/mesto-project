@@ -49,7 +49,7 @@
       </section>
     </main>
     <footer class="footer">
-      <p class="footer__info">&copy; 2020 Mesto Russia</p>
+      <p class="footer__info">&copy; 2022 Mesto Russia</p>
     </footer>
     <div class="popup">
       <div class="popup__container">
@@ -93,7 +93,7 @@
                 maxlength="30" required>
               <span class="form__item-error card-name-input-error">Вы пропустили это
                 поле.</span>
-              <input type="url" value="" pattern="^[a-zA-Zа-яА-Я\s-]+$"
+              <input type="url" value=""
                 data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
                 placeholder="Ссылка на картинку" class="form__item form__item_el_photo-link" id="card-url-input"
                 required>
@@ -116,7 +116,10 @@
       </div>
     </div>
   </div>
-  <script src="./components/index.js"></script>
+  <script type="module" src="./components/card.js"></script>
+  <script type="module" src="./components/modal.js"></script>
+  <script type="module" src="./components/validate.js"></script>
+  <script type="module" src="./components/index.js"></script>
 </body>
 
 </html>
