@@ -22,6 +22,7 @@
   background-color: transparent;
   color: #e5e5e5;
   border: 1px solid #e5e5e5;
+  cursor: default;
 }
 
 .form__button:hover {

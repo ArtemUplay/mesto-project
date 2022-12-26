@@ -1,11 +1,4 @@
-const formSelectors = {
-    formSelector: 'form',
-    inputSelector: 'form__item',
-    submitButtonSelector: 'form__button',
-    inactiveButtonClass: 'form__button_disabled',
-    inputErrorClass: 'form__item_type_error',
-    errorClass: 'form__item-error_active',
-};
+import {formSelectors} from "./constants";
 
 // Валидация форм
 function showInputError(formElement, inputElement, errorMessage, formSelectors) {

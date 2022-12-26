@@ -1,35 +1,6 @@
 import {openPopup, closePopup} from "./modal";
-
-const cardsList = document.querySelector('.cards__list');
-const cardTemplate = document.querySelector('#card-template').content;
-const popupImageOpen = document.querySelector('.image-popup');
-const popupAddCards = document.querySelector('.popup_add-card');
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
+import {cardsList, cardTemplate, popupImageOpen, popupAddCards, initialCards, cardsForm, placeLink, placeName} from './constants';
+import {addCard} from './index.js';
 
 function createCard(placeName, placeLink) {
     const cardElement = cardTemplate.querySelector('.cards__item').cloneNode(true);
@@ -62,31 +33,16 @@ function createCard(placeName, placeLink) {
     return cardElement;
 }
 
-function addCard(card) {
-    cardsList.prepend(card);
-}
-
-function addWebsiteCards() {
-    for (let i = 0; i < initialCards.length; i++) {
-        addCard(createCard(initialCards[i].name, initialCards[i].link));
-    }
-}
-
 // Создание карточек через попап
 function addPopupCard() {
-    const cardsForm = document.querySelector('.form_add-card');
-    const placeName = document.querySelector('.form__item_el_name_place');
-    const placeLink = document.querySelector('.form__item_el_photo-link');
 
     // Отменяем стандартную отправку формы
     cardsForm.addEventListener('submit', (evt) => {
         evt.preventDefault();
         addCard(createCard(placeName.value, placeLink.value));
+        cardsForm.reset();
         closePopup(popupAddCards);
     })
-
-    cardsForm.reset();
 }
 
-
-export {initialCards, createCard, addCard, addWebsiteCards, addPopupCard, popupImageOpen, popupAddCards};
+export {initialCards, createCard, addPopupCard, popupImageOpen, popupAddCards};

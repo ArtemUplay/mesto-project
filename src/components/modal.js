@@ -1,10 +1,4 @@
-const popups = Array.from(document.querySelectorAll('.popup'));
-const popupProfile = document.querySelector('.popup');
-const popupClose = document.querySelector('.popup__close');
-const profileName = document.querySelector('.profile__name');
-const profileStatus = document.querySelector('.profile__status');
-const inputProfileName = document.querySelector('.form__item_el_user-name');
-const inputProfileStatus = document.querySelector('.form__item_el_user-status');
+import {popups, popupProfile, popupClose, profileName, profileStatus,inputProfileName, inputProfileStatus, keyEsc} from './constants';
 
 // Открытие попапа
 function openPopup(openPopup) {
@@ -33,7 +27,7 @@ function editProfile() {
 // Функция закрытия попапа по кнопке ESC
 function closeEscPopup(evt) {
     popups.forEach(popup => {
-        if (evt.code === "Escape") {
+        if (evt.code === keyEsc && popup.classList.contains('popup_opened')) {
             closePopup(popup);
         }
     })

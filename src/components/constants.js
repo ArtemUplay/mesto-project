@@ -1,0 +1,62 @@
+// Для card.js
+const cardsList = document.querySelector('.cards__list');
+const cardTemplate = document.querySelector('#card-template').content;
+const popupImageOpen = document.querySelector('.image-popup');
+const popupAddCards = document.querySelector('.popup_add-card');
+const cardsForm = document.querySelector('.form_add-card');
+const placeName = document.querySelector('.form__item_el_name_place');
+const placeLink = document.querySelector('.form__item_el_photo-link');
+const initialCards = [
+    {
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];
+
+// Для validate.js
+const formSelectors = {
+    formSelector: 'form',
+    inputSelector: 'form__item',
+    submitButtonSelector: 'form__button',
+    inactiveButtonClass: 'form__button_disabled',
+    inputErrorClass: 'form__item_type_error',
+    errorClass: 'form__item-error_active',
+};
+
+// Для index.js
+const buttonEditProfile = document.querySelector('.profile__edit-button');
+const popupAddCardsClose = document.querySelector('.popup__close_add-card');
+const buttonAddPhotos = document.querySelector('.profile__add-button');
+const imagePopupClose = document.querySelector('.popup__close_image-popup');
+
+// Для modal.js
+const popups = Array.from(document.querySelectorAll('.popup'));
+const popupProfile = document.querySelector('.popup');
+const popupClose = document.querySelector('.popup__close');
+const profileName = document.querySelector('.profile__name');
+const profileStatus = document.querySelector('.profile__status');
+const inputProfileName = document.querySelector('.form__item_el_user-name');
+const inputProfileStatus = document.querySelector('.form__item_el_user-status');
+const keyEsc = 'Escape';
+
+export {cardsList, cardTemplate, popupImageOpen, popupAddCards, cardsForm, placeName, placeLink, initialCards, formSelectors, buttonEditProfile, popupAddCardsClose, buttonAddPhotos, imagePopupClose, popups, popupProfile, popupClose, profileName, profileStatus,inputProfileName, inputProfileStatus, keyEsc};

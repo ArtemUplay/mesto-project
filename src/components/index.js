@@ -1,19 +1,26 @@
 import '../pages/index.css';
-import {initialCards, createCard, addCard, addWebsiteCards, addPopupCard, popupImageOpen, popupAddCards} from './card';
-import {popups, popupProfile, popupClose, openPopup, closePopup, editProfile, closeEscPopup, profileName, profileStatus, inputProfileName, inputProfileStatus} from "./modal";
+import {createCard, addPopupCard, popupImageOpen, popupAddCards} from './card';
+import {popupProfile, openPopup, closePopup, editProfile, closeEscPopup} from "./modal";
 import {formSelectors, showInputError, hideInputError, isValid, enableValidation, checkEmptyFields, hasInvalidInput, setEventListeners, toggleButtonState} from './validate'
-
-const buttonEditProfile = document.querySelector('.profile__edit-button');
-const popupAddCardsClose = document.querySelector('.popup__close_add-card');
-const buttonAddPhotos = document.querySelector('.profile__add-button');
-const imagePopupClose = document.querySelector('.popup__close_image-popup');
+import {initialCards, popups, popupClose, buttonEditProfile, inputProfileName, inputProfileStatus, profileName, profileStatus, popupAddCardsClose, buttonAddPhotos, imagePopupClose, cardsList} from './constants';
 
 editProfile();
 
 addPopupCard();
 
 // Добавление карточек на страницу
+function addWebsiteCards () {
+  initialCards.forEach((card) => {
+    addCard(createCard(card.name, card.link));
+  })
+}
+
 addWebsiteCards();
+
+// Добавление карточки в контейнер
+function addCard(card) {
+  cardsList.prepend(card);
+}
 
 // Валидация
 enableValidation(formSelectors);
@@ -55,3 +62,5 @@ popupAddCardsClose.addEventListener('click', function () {
 imagePopupClose.addEventListener('click', function () {
   closePopup(popupImageOpen);
 });
+
+export {addCard};

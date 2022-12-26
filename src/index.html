@@ -60,17 +60,16 @@
         <form class="form form_edit" name="profile-form" novalidate>
           <fieldset class="form__user-info">
             <div class="form__items">
-              <input type="text" value="" pattern="^[a-zA-Zа-яА-Я\s-]+$"
+              <input type="text" value="" placeholder="Имя" pattern="^[a-zA-Zа-яА-Я\s-]+$"
                 data-error-message=" Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
                 class="form__item form__item_el_user-name" id="profile-name-input" minlength="2" maxlength="40"
                 required>
-              <span class="form__item-error profile-name-input-error">Вы пропустили это
-                поле.</span>
-              <input type="text" value="" pattern="^[a-zA-Zа-яА-Я\s-]+$"
+              <span class="form__item-error profile-name-input-error"></span>
+              <input type="text" value="" placeholder="Профессия" pattern="^[a-zA-Zа-яА-Я\s-]+$"
                 data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
                 class="form__item form__item_el_user-status" id="profile-status-input" minlength="2" maxlength="200"
                 required>
-              <span class="form__item-error profile-status-input-error">Вы пропустили это поле.</span>
+              <span class="form__item-error profile-status-input-error"></span>
             </div>
             <button type="submit" class="form__button form__button_edit">Сохранить</button>
           </fieldset>
@@ -91,14 +90,12 @@
                 data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
                 placeholder="Название" class="form__item form__item_el_name_place" id="card-name-input" minlength="2"
                 maxlength="30" required>
-              <span class="form__item-error card-name-input-error">Вы пропустили это
-                поле.</span>
+              <span class="form__item-error card-name-input-error"></span>
               <input type="url" value=""
                 data-error-message="Разрешены только латинские буквы, кириллические буквы, знаки дефиса и пробелы"
                 placeholder="Ссылка на картинку" class="form__item form__item_el_photo-link" id="card-url-input"
                 required>
-              <span class="form__item-error card-url-input-error">Вы пропустили это
-                поле.</span>
+              <span class="form__item-error card-url-input-error"></span>
             </div>
             <button type="submit" class="form__button form__button_add-card">Сохранить</button>
           </fieldset>
@@ -116,9 +113,6 @@
       </div>
     </div>
   </div>
-  <script type="module" src="./components/card.js"></script>
-  <script type="module" src="./components/modal.js"></script>
-  <script type="module" src="./components/validate.js"></script>
   <script type="module" src="./components/index.js"></script>
 </body>
 
