@@ -7,6 +7,7 @@
   left: 36px;
   width: 100%;
   max-width: 358px;
+  height: 15px;
   display: none;
 }
 
@@ -31,6 +32,10 @@
 }
 
 @media screen and (max-width: 550px) {
+  .form__item-error {
+    max-width: 238px;
+  }
+
   .form__item-error {
     left: 21px;
   }

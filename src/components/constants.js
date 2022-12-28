@@ -59,4 +59,4 @@ const inputProfileName = document.querySelector('.form__item_el_user-name');
 const inputProfileStatus = document.querySelector('.form__item_el_user-status');
 const keyEsc = 'Escape';
 
-export {cardsList, cardTemplate, popupImageOpen, popupAddCards, cardsForm, placeName, placeLink, initialCards, formSelectors, buttonEditProfile, popupAddCardsClose, buttonAddPhotos, imagePopupClose, popups, popupProfile, popupClose, profileName, profileStatus,inputProfileName, inputProfileStatus, keyEsc};
+export {cardsList,cardTemplate, popupImageOpen, popupAddCards, cardsForm, placeName, placeLink, initialCards, formSelectors, buttonEditProfile, popupAddCardsClose, buttonAddPhotos, imagePopupClose, popups, popupProfile, popupClose, profileName, profileStatus,inputProfileName, inputProfileStatus, keyEsc};

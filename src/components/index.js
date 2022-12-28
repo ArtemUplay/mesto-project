@@ -1,7 +1,7 @@
 import '../pages/index.css';
 import {createCard, addPopupCard, popupImageOpen, popupAddCards} from './card';
-import {popupProfile, openPopup, closePopup, editProfile, closeEscPopup} from "./modal";
-import {formSelectors, showInputError, hideInputError, isValid, enableValidation, checkEmptyFields, hasInvalidInput, setEventListeners, toggleButtonState} from './validate'
+import {popupProfile, openPopup, closePopup, editProfile} from "./modal";
+import {formSelectors,enableValidation, checkEmptyFields} from './validate'
 import {initialCards, popups, popupClose, buttonEditProfile, inputProfileName, inputProfileStatus, profileName, profileStatus, popupAddCardsClose, buttonAddPhotos, imagePopupClose, cardsList} from './constants';
 
 editProfile();

@@ -1,5 +1,5 @@
 import {openPopup, closePopup} from "./modal";
-import {cardsList, cardTemplate, popupImageOpen, popupAddCards, initialCards, cardsForm, placeLink, placeName} from './constants';
+import {cardTemplate, popupImageOpen, popupAddCards, initialCards, cardsForm, placeLink, placeName} from './constants';
 import {addCard} from './index.js';
 
 function createCard(placeName, placeLink) {

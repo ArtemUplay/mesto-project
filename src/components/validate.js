@@ -74,4 +74,4 @@ function checkEmptyFields(formElement, inputElement) {
     }
 }
 
-export {formSelectors, showInputError, hideInputError, isValid, enableValidation, checkEmptyFields, hasInvalidInput, setEventListeners, toggleButtonState};
+export {formSelectors, enableValidation, checkEmptyFields};

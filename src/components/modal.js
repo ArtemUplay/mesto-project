@@ -33,4 +33,4 @@ function closeEscPopup(evt) {
     })
 }
 
-export {popups, popupProfile, popupClose, openPopup, closePopup, editProfile, closeEscPopup, profileName, profileStatus, inputProfileName, inputProfileStatus};
+export {popups, popupProfile, popupClose, openPopup, closePopup, editProfile, profileName, profileStatus, inputProfileName, inputProfileStatus};
