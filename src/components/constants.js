@@ -6,6 +6,7 @@ const popupAddCards = document.querySelector('.popup_add-card');
 const cardsForm = document.querySelector('.form_add-card');
 const placeName = document.querySelector('.form__item_el_name_place');
 const placeLink = document.querySelector('.form__item_el_photo-link');
+const cardSubmitButton = cardsForm.querySelector('.form__button');
 const initialCards = [
     {
         name: 'Архыз',
@@ -44,9 +45,13 @@ const formSelectors = {
 };
 
 // Для index.js
+const formEdit = document.querySelector('.form_edit');
+const profileSubmitButton = formEdit.querySelector('.form__button');
 const avatarEditButton = document.querySelector('.profile__edit-avatar');
 const popupEditAvatar = document.querySelector('.popup-avatar');
 const popupEditAvatarClose = popupEditAvatar.querySelector('.popup__close');
+const formEditAvatar = document.querySelector('.form_edit-avatar');
+const avatarSubmitButton = formEditAvatar.querySelector('.form__button');
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 const popupAddCardsClose = document.querySelector('.popup__close_add-card');
 const buttonAddPhotos = document.querySelector('.profile__add-button');
@@ -70,11 +75,14 @@ export {
     popupImageOpen,
     popupAddCards,
     cardsForm,
+    cardSubmitButton,
     placeName,
     placeLink,
     initialCards,
     formSelectors,
     avatarEditButton,
+    formEditAvatar,
+    avatarSubmitButton,
     popupEditAvatar,
     popupEditAvatarClose,
     avatarLink,
@@ -89,5 +97,7 @@ export {
     profileStatus,
     inputProfileName,
     inputProfileStatus,
-    keyEsc
+    keyEsc,
+    formEdit,
+    profileSubmitButton
 };

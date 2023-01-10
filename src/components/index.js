@@ -2,7 +2,6 @@ import '../pages/index.css';
 
 import {
   createCard,
-  addPopupCard,
   popupImageOpen,
   popupAddCards
 } from './card';
@@ -11,8 +10,6 @@ import {
   popupProfile,
   openPopup,
   closePopup,
-  editProfile,
-  editAvatarProfile
 } from "./modal";
 
 import {
@@ -23,10 +20,22 @@ import {
 
 import {
   fillProfile,
-  loadWebsiteCards
+  loadWebsiteCards,
+  addCardFromPopup,
+  updateProfile,
+  updateAvatar
 } from './api';
 
 import {
+  addCard,
+  renderLoading
+} from './utils'
+
+import {
+  cardsForm,
+  cardSubmitButton,
+  placeLink,
+  placeName,
   popups,
   popupEditClose,
   buttonEditProfile,
@@ -37,38 +46,89 @@ import {
   popupAddCardsClose,
   buttonAddPhotos,
   imagePopupClose,
-  cardsList,
   avatarEditButton,
   popupEditAvatar,
   popupEditAvatarClose,
-  avatarImage
+  avatarImage,
+  formEdit,
+  profileSubmitButton,
+  avatarLink,
+  formEditAvatar,
+  avatarSubmitButton,
 } from './constants';
 
-editProfile();
+formEdit.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  renderLoading(true, profileSubmitButton);
+  updateProfile(inputProfileName.value, inputProfileStatus.value)
+    .then(() => {
+      profileName.textContent = inputProfileName.value;
+      profileStatus.textContent = inputProfileStatus.value;
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    .finally(() => {
+      renderLoading(false, profileSubmitButton);
+    })
+  closePopup(popupProfile);
+})
 
-editAvatarProfile();
+formEditAvatar.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  renderLoading(true, avatarSubmitButton);
+  updateAvatar(avatarImage.src)
+    .then(() => {
+      avatarImage.src = avatarLink.value;
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      renderLoading(false, avatarSubmitButton);
+    })
+  closePopup(popupEditAvatar);
+})
 
-addPopupCard();
+
+// Создание карточек через попап
+cardsForm.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  renderLoading(true, cardSubmitButton);
+  addCardFromPopup(placeName.value, placeLink.value)
+    .then((card) => {
+      addCard(createCard(card.name, card.link, card.likes, card.owner.name, card._id));
+      closePopup(popupAddCards);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    .finally(() => {
+      renderLoading(false, cardSubmitButton);
+    })
+
+  cardsForm.reset();
+})
 
 // Добавление карточек на страницу
 function addWebsiteCards(cards) {
-  console.log(cards);
   cards.forEach((card) => {
-    addCard(createCard(card.name, card.link, card.likes, card.owner._id, card._id));
+    addCard(createCard(card.name, card.link, card.likes, card.owner.name, card._id));
   })
 }
 
-// Загрузка карточек на страницу
-loadWebsiteCards()
-  .then(cards => {
-    addWebsiteCards(cards.reverse());
+// Заполнение имени профиля и профессии и загрузка карточек на страницу
+Promise.all([loadWebsiteCards(), fillProfile()])
+  .then(([cards, profileInfo]) => {
+    avatarImage.src = profileInfo.avatar;
+    profileName.textContent = profileInfo.name;
+    profileStatus.textContent = profileInfo.about;
+    const userId = cards._id;
+    addWebsiteCards(cards.reverse(), userId);
   })
-
-// Добавление карточки в контейнер
-function addCard(card) {
-  cardsList.prepend(card);
-}
-
+  .catch((err) => {
+    console.log(err);
+  })
 // Валидация
 enableValidation(formSelectors);
 
@@ -80,23 +140,6 @@ popups.forEach((popup) => {
     }
   });
 })
-
-// Заполнение имени профиля и профессии
-fillProfile(profileName, profileStatus, avatarImage)
-  .then(profileInfo => {
-    avatarImage.src = profileInfo.avatar;
-    profileName.textContent = profileInfo.name;
-    profileStatus.textContent = profileInfo.about;
-  })
-
-// Функция смены текста в кнопке в попапе при загрузке
-function renderLoading(isLoading, formButton) {
-  if (isLoading) {
-    formButton.textContent = 'Сохранение...';
-  } else {
-    formButton.textContent = 'Сохранить';
-  }
-}
 
 avatarEditButton.addEventListener('click', function () {
   openPopup(popupEditAvatar);
@@ -135,8 +178,3 @@ imagePopupClose.addEventListener('click', function () {
   closePopup(popupImageOpen);
 });
 
-export {
-  addCard,
-  addWebsiteCards,
-  renderLoading
-};

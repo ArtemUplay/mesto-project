@@ -23,9 +23,6 @@ const fillProfile = (profileName, profileStatus, avatarImage) => {
     .then(response => {
       return checkStatusResponse(response);
     })
-    .catch(err => {
-      console.log(err);
-    })
 }
 
 // Загрузка карточек на страницу
@@ -35,9 +32,6 @@ const loadWebsiteCards = () => {
   })
     .then(response => {
       return checkStatusResponse(response);
-    })
-    .catch(err => {
-      console.log(err);
     })
 }
 
@@ -54,9 +48,6 @@ const updateProfile = (inputProfileName, inputProfileStatus) => {
     .then(response => {
       return checkStatusResponse(response);
     })
-    .catch(err => {
-      console.log(err);
-    })
 }
 
 // Добавление карточки
@@ -72,9 +63,6 @@ const addCardFromPopup = (placeName, placeLink) => {
     .then(response => {
       return checkStatusResponse(response);
     })
-    .catch(err => {
-      console.log(err);
-    })
 }
 
 // Удаление карточки
@@ -85,9 +73,6 @@ const deleteCard = (cardId) => {
   })
     .then(response => {
       return checkStatusResponse(response);
-    })
-    .catch(err => {
-      console.log(err);
     })
 }
 
@@ -100,9 +85,6 @@ const addLikeToCard = (cardId) => {
     .then((res) => {
       return checkStatusResponse(res);
     })
-    .catch(err => {
-      console.log(err);
-    })
 }
 
 // Удаление лайка у карточки
@@ -113,9 +95,6 @@ const deleteLikeCard = (cardId) => {
   })
     .then(response => {
       return checkStatusResponse(response);
-    })
-    .catch(err => {
-      console.log(err);
     })
 }
 
