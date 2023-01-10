@@ -10,7 +10,7 @@ import {
 import {
   popups,
   popupProfile,
-  popupClose,
+  popupEditClose,
   profileName,
   profileStatus,
   inputProfileName,
@@ -80,7 +80,7 @@ function closeEscPopup(evt) {
 export {
   popups,
   popupProfile,
-  popupClose,
+  popupEditClose,
   openPopup,
   closePopup,
   editProfile,

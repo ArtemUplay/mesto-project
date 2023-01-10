@@ -57,7 +57,7 @@ const popups = Array.from(document.querySelectorAll('.popup'));
 const popupProfile = document.querySelector('.popup-edit-profile');
 const avatarLink = popupEditAvatar.querySelector('.form__item_el_avatar-link');
 const avatarImage = document.querySelector('.profile__avatar-image');
-const popupClose = document.querySelector('.popup__close');
+const popupEditClose = popupProfile.querySelector('.popup__close');
 const profileName = document.querySelector('.profile__name');
 const profileStatus = document.querySelector('.profile__status');
 const inputProfileName = document.querySelector('.form__item_el_user-name');
@@ -84,7 +84,7 @@ export {
     buttonAddPhotos,
     imagePopupClose,
     popups, popupProfile,
-    popupClose,
+    popupEditClose,
     profileName,
     profileStatus,
     inputProfileName,

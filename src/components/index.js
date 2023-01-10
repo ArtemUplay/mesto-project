@@ -28,7 +28,7 @@ import {
 
 import {
   popups,
-  popupClose,
+  popupEditClose,
   buttonEditProfile,
   inputProfileName,
   inputProfileStatus,
@@ -102,7 +102,7 @@ avatarEditButton.addEventListener('click', function () {
   openPopup(popupEditAvatar);
 })
 
-popupClose.addEventListener('click', function () {
+popupEditClose.addEventListener('click', function () {
   closePopup(popupProfile);
 });
 
