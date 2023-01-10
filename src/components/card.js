@@ -14,7 +14,8 @@ import {
 } from './constants';
 
 import {
-  addCard
+  addCard,
+  renderLoading
 } from "./index";
 
 import {
@@ -88,13 +89,18 @@ function createCard(placeName, placeLink, placeLikes, ownerId, cardId) {
 
 // Создание карточек через попап
 function addPopupCard() {
+  const formButton = cardsForm.querySelector('.form__button');
 
   // Отменяем стандартную отправку формы
   cardsForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
+    renderLoading(true, formButton);
     addCardFromPopup(placeName.value, placeLink.value)
       .then((card) => {
         return addCard(createCard(card.name, card.link, card.likes, card.owner._id, card._id));
+      })
+      .finally(() => {
+        renderLoading(false, formButton);
       })
     cardsForm.reset();
     closePopup(popupAddCards);
