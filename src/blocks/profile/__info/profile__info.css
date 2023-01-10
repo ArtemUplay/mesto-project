@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-
+  margin: 0px 0px 0px 30px;
 }
 
 @media screen and (max-width: 670px) {
@@ -10,5 +10,6 @@
     flex-direction: column;
     align-items: center;
     row-gap: 34px;
+    margin: 0;
   }
 }

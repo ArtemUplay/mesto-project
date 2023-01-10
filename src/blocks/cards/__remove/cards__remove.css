@@ -12,6 +12,10 @@
   transition: opacity .3s ease;
 }
 
+.cards__remove_hidden {
+  display: none;
+}
+
 .cards__remove:hover {
   opacity: .5;
 }

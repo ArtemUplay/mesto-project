@@ -1,4 +1,6 @@
-import {formSelectors} from "./constants";
+import {
+    formSelectors
+} from "./constants";
 
 // Валидация форм
 function showInputError(formElement, inputElement, errorMessage, formSelectors) {
@@ -74,4 +76,8 @@ function checkEmptyFields(formElement, inputElement) {
     }
 }
 
-export {formSelectors, enableValidation, checkEmptyFields};
+export {
+    formSelectors,
+    enableValidation,
+    checkEmptyFields
+};

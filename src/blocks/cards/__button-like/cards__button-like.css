@@ -12,6 +12,7 @@
   cursor: pointer;
   transition: opacity .2s ease;
   transition: background-image .5s ease;
+  margin: 0px 0px 3px 0px;
 }
 
 .cards__button-like:hover {

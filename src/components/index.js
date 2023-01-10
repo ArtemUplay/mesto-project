@@ -1,21 +1,68 @@
 import '../pages/index.css';
-import {createCard, addPopupCard, popupImageOpen, popupAddCards} from './card';
-import {popupProfile, openPopup, closePopup, editProfile} from "./modal";
-import {formSelectors,enableValidation, checkEmptyFields} from './validate'
-import {initialCards, popups, popupClose, buttonEditProfile, inputProfileName, inputProfileStatus, profileName, profileStatus, popupAddCardsClose, buttonAddPhotos, imagePopupClose, cardsList} from './constants';
+
+import {
+  createCard,
+  addPopupCard,
+  popupImageOpen,
+  popupAddCards
+} from './card';
+
+import {
+  popupProfile,
+  openPopup,
+  closePopup,
+  editProfile,
+  editAvatarProfile
+} from "./modal";
+
+import {
+  formSelectors,
+  enableValidation,
+  checkEmptyFields
+} from './validate';
+
+import {
+  fillProfile,
+  loadWebsiteCards
+} from './api';
+
+import {
+  popups,
+  popupClose,
+  buttonEditProfile,
+  inputProfileName,
+  inputProfileStatus,
+  profileName,
+  profileStatus,
+  popupAddCardsClose,
+  buttonAddPhotos,
+  imagePopupClose,
+  cardsList,
+  avatarEditButton,
+  popupEditAvatar,
+  popupEditAvatarClose,
+  avatarImage
+} from './constants';
 
 editProfile();
+
+editAvatarProfile();
 
 addPopupCard();
 
 // Добавление карточек на страницу
-function addWebsiteCards () {
-  initialCards.forEach((card) => {
-    addCard(createCard(card.name, card.link));
+function addWebsiteCards(cards) {
+  console.log(cards);
+  cards.forEach((card) => {
+    addCard(createCard(card.name, card.link, card.likes, card.owner._id, card._id));
   })
 }
 
-addWebsiteCards();
+// Загрузка карточек на страницу
+loadWebsiteCards()
+  .then(cards => {
+    addWebsiteCards(cards.reverse());
+  })
 
 // Добавление карточки в контейнер
 function addCard(card) {
@@ -32,6 +79,27 @@ popups.forEach((popup) => {
       closePopup(popup);
     }
   });
+})
+
+// Заполнение имени профиля и профессии
+fillProfile(profileName, profileStatus, avatarImage)
+  .then(profileInfo => {
+    avatarImage.src = profileInfo.avatar;
+    profileName.textContent = profileInfo.name;
+    profileStatus.textContent = profileInfo.about;
+  })
+
+// Функция смены текста в кнопке в попапе при загрузке
+function renderLoading(isLoading, formButton) {
+  if (isLoading) {
+    formButton.textContent = 'Сохранение...';
+  } else {
+    formButton.textContent = 'Сохранить';
+  }
+}
+
+avatarEditButton.addEventListener('click', function () {
+  openPopup(popupEditAvatar);
 })
 
 popupClose.addEventListener('click', function () {
@@ -51,6 +119,10 @@ buttonEditProfile.addEventListener('click', function () {
   inputProfileStatus.value = profileStatus.textContent;
 });
 
+popupEditAvatarClose.addEventListener('click', function () {
+  closePopup(popupEditAvatar);
+})
+
 buttonAddPhotos.addEventListener('click', function () {
   openPopup(popupAddCards);
 });
@@ -63,4 +135,8 @@ imagePopupClose.addEventListener('click', function () {
   closePopup(popupImageOpen);
 });
 
-export {addCard};
+export {
+  addCard,
+  addWebsiteCards,
+  renderLoading
+};

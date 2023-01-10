@@ -44,6 +44,9 @@ const formSelectors = {
 };
 
 // Для index.js
+const avatarEditButton = document.querySelector('.profile__edit-avatar');
+const popupEditAvatar = document.querySelector('.popup-avatar');
+const popupEditAvatarClose = popupEditAvatar.querySelector('.popup__close');
 const buttonEditProfile = document.querySelector('.profile__edit-button');
 const popupAddCardsClose = document.querySelector('.popup__close_add-card');
 const buttonAddPhotos = document.querySelector('.profile__add-button');
@@ -51,7 +54,9 @@ const imagePopupClose = document.querySelector('.popup__close_image-popup');
 
 // Для modal.js
 const popups = Array.from(document.querySelectorAll('.popup'));
-const popupProfile = document.querySelector('.popup');
+const popupProfile = document.querySelector('.popup-edit-profile');
+const avatarLink = popupEditAvatar.querySelector('.form__item_el_avatar-link');
+const avatarImage = document.querySelector('.profile__avatar-image');
 const popupClose = document.querySelector('.popup__close');
 const profileName = document.querySelector('.profile__name');
 const profileStatus = document.querySelector('.profile__status');
@@ -59,4 +64,30 @@ const inputProfileName = document.querySelector('.form__item_el_user-name');
 const inputProfileStatus = document.querySelector('.form__item_el_user-status');
 const keyEsc = 'Escape';
 
-export {cardsList,cardTemplate, popupImageOpen, popupAddCards, cardsForm, placeName, placeLink, initialCards, formSelectors, buttonEditProfile, popupAddCardsClose, buttonAddPhotos, imagePopupClose, popups, popupProfile, popupClose, profileName, profileStatus,inputProfileName, inputProfileStatus, keyEsc};
+export {
+    cardsList,
+    cardTemplate,
+    popupImageOpen,
+    popupAddCards,
+    cardsForm,
+    placeName,
+    placeLink,
+    initialCards,
+    formSelectors,
+    avatarEditButton,
+    popupEditAvatar,
+    popupEditAvatarClose,
+    avatarLink,
+    avatarImage,
+    buttonEditProfile,
+    popupAddCardsClose,
+    buttonAddPhotos,
+    imagePopupClose,
+    popups, popupProfile,
+    popupClose,
+    profileName,
+    profileStatus,
+    inputProfileName,
+    inputProfileStatus,
+    keyEsc
+};
