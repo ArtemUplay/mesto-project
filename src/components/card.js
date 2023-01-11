@@ -5,9 +5,7 @@ import {
 import {
   cardTemplate,
   popupImageOpen,
-  popupAddCards,
   initialCards,
-  profileName,
 } from './constants';
 
 import {
@@ -16,7 +14,7 @@ import {
   deleteCard
 } from "./api";
 
-function createCard(placeName, placeLink, placeLikes, ownerName, cardId) {
+function createCard(placeName, placeLink, placeLikes, ownerId, cardId, userId) {
   const cardElement = cardTemplate.querySelector('.cards__item').cloneNode(true);
   const cardRemoveButton = cardElement.querySelector('.cards__remove');
   const buttonLike = cardElement.querySelector('.cards__button-like');
@@ -32,7 +30,7 @@ function createCard(placeName, placeLink, placeLikes, ownerName, cardId) {
   // Добавление поставленного лайка при загрузке
   if (placeLikes) {
     placeLikes.forEach(like => {
-      if (like.name == profileName.textContent) {
+      if (like._id === userId) {
         buttonLike.classList.add('cards__button-like_active');
       }
     })
@@ -41,18 +39,18 @@ function createCard(placeName, placeLink, placeLikes, ownerName, cardId) {
   buttonLike.addEventListener('click', function (evt) {
     if (evt.target.classList.contains('cards__button-like_active')) {
       deleteLikeCard(cardId)
-        .then((data) => {
+        .then((card) => {
           evt.target.classList.remove('cards__button-like_active');
-          placeLike.textContent = data.likes.length;
+          placeLike.textContent = card.likes.length;
         })
         .catch(err => {
           console.log(err);
         })
     } else {
       addLikeToCard(cardId)
-        .then((data) => {
+        .then((card) => {
           evt.target.classList.add('cards__button-like_active');
-          placeLike.textContent = data.likes.length;
+          placeLike.textContent = card.likes.length;
         })
         .catch(err => {
           console.log(err);
@@ -62,7 +60,7 @@ function createCard(placeName, placeLink, placeLikes, ownerName, cardId) {
 
   placeLike.textContent = placeLikes.length;
 
-  if (ownerName == profileName.textContent) {
+  if (ownerId === userId) {
     cardRemoveButton.addEventListener('click', function (evt) {
       deleteCard(cardId)
         .then(() => {
@@ -88,5 +86,4 @@ export {
   initialCards,
   createCard,
   popupImageOpen,
-  popupAddCards
 };

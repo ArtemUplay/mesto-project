@@ -1,13 +1,17 @@
 import {
-  cardsList
+  cardsList,
 } from './constants';
 
 // Функция смены текста в кнопке в попапе при загрузке
 function renderLoading(isLoading, formButton) {
   if (isLoading) {
-    formButton.textContent = 'Сохранение...';
-  } else {
     formButton.textContent = 'Сохранить';
+    formButton.classList.add('form__button_disabled');
+    formButton.disabled = true;
+  } else {
+    formButton.textContent = 'Сохранение...';
+    formButton.classList.remove('form__button_disabled');
+    formButton.disabled = false;
   }
 }
 

@@ -79,5 +79,6 @@ function checkEmptyFields(formElement, inputElement) {
 export {
     formSelectors,
     enableValidation,
-    checkEmptyFields
+    checkEmptyFields,
+    toggleButtonState
 };

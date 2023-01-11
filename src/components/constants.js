@@ -99,5 +99,5 @@ export {
     inputProfileStatus,
     keyEsc,
     formEdit,
-    profileSubmitButton
+    profileSubmitButton,
 };

@@ -3,7 +3,6 @@ import '../pages/index.css';
 import {
   createCard,
   popupImageOpen,
-  popupAddCards
 } from './card';
 
 import {
@@ -55,65 +54,69 @@ import {
   avatarLink,
   formEditAvatar,
   avatarSubmitButton,
+  popupAddCards
 } from './constants';
+
+// Валидация
+enableValidation(formSelectors);
 
 formEdit.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  renderLoading(true, profileSubmitButton);
+  renderLoading(false, profileSubmitButton);
   updateProfile(inputProfileName.value, inputProfileStatus.value)
     .then(() => {
       profileName.textContent = inputProfileName.value;
       profileStatus.textContent = inputProfileStatus.value;
+      closePopup(popupProfile);
     })
     .catch(err => {
       console.log(err);
     })
     .finally(() => {
-      renderLoading(false, profileSubmitButton);
+      renderLoading(true, profileSubmitButton);
     })
-  closePopup(popupProfile);
 })
 
 formEditAvatar.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  renderLoading(true, avatarSubmitButton);
+  renderLoading(false, avatarSubmitButton);
   updateAvatar(avatarImage.src)
     .then(() => {
       avatarImage.src = avatarLink.value;
+      formEditAvatar.reset();
+      closePopup(popupEditAvatar);
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      renderLoading(false, avatarSubmitButton);
+      renderLoading(true, avatarSubmitButton);
     })
-  closePopup(popupEditAvatar);
 })
-
 
 // Создание карточек через попап
 cardsForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  renderLoading(true, cardSubmitButton);
+  renderLoading(false, cardSubmitButton);
   addCardFromPopup(placeName.value, placeLink.value)
     .then((card) => {
-      addCard(createCard(card.name, card.link, card.likes, card.owner.name, card._id));
+      addCard(createCard(card.name, card.link, card.likes, card.owner._id, card._id, card.owner._id));
+      cardsForm.reset();
       closePopup(popupAddCards);
     })
     .catch(err => {
       console.log(err);
     })
     .finally(() => {
-      renderLoading(false, cardSubmitButton);
+      renderLoading(true, cardSubmitButton);
     })
-
-  cardsForm.reset();
 })
 
 // Добавление карточек на страницу
-function addWebsiteCards(cards) {
+function addWebsiteCards(cards, userId) {
+  console.log(cards);
   cards.forEach((card) => {
-    addCard(createCard(card.name, card.link, card.likes, card.owner.name, card._id));
+    addCard(createCard(card.name, card.link, card.likes, card.owner._id, card._id, userId));
   })
 }
 
@@ -123,14 +126,12 @@ Promise.all([loadWebsiteCards(), fillProfile()])
     avatarImage.src = profileInfo.avatar;
     profileName.textContent = profileInfo.name;
     profileStatus.textContent = profileInfo.about;
-    const userId = cards._id;
+    const userId = profileInfo._id;
     addWebsiteCards(cards.reverse(), userId);
   })
   .catch((err) => {
     console.log(err);
   })
-// Валидация
-enableValidation(formSelectors);
 
 // Закрытие попапов кликом на оверлей
 popups.forEach((popup) => {
